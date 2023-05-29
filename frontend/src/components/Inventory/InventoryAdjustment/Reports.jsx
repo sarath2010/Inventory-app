@@ -3,6 +3,7 @@ import moment from 'moment/moment';
 import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../Navbar/Navbar';
 
 const Reports = () => {
 
@@ -14,9 +15,9 @@ const Reports = () => {
     const getReports = async () => {
         try {
             const response = await axios.get('http://localhost:5000/adjust-reports');
-        if (response && response.data.success) {
-            setReportData(response.data.success);
-        }
+            if (response && response.data.success) {
+                setReportData(response.data.success);
+            }
         } catch (error) {
             console.error(error.message);
         }
@@ -29,17 +30,19 @@ const Reports = () => {
 
     const reset = async (e) => {
         e.preventDefault();
+        setStartDate(new Date());
+        setEndDate(new Date());
         await getReports();
     }
 
     const getDateRangeReports = async () => {
         try {
             const start = startDate.toISOString();
-        const end = endDate.toISOString();
-        const response = await axios.post(`http://localhost:5000/date-range-reports/${start}/${end}`);
-        if (response && response.data.success) {
-            setReportData(response.data.success);
-        }
+            const end = endDate.toISOString();
+            const response = await axios.post(`http://localhost:5000/date-range-reports/${start}/${end}`);
+            if (response && response.data.success) {
+                setReportData(response.data.success);
+            }
         } catch (error) {
             console.error(error.message);;
         }
@@ -57,7 +60,8 @@ const Reports = () => {
 
     return (
         <>
-            <button onClick={(e) => { home(e) }}>Home</button>
+            <Navbar />
+            
             <div className="col-sm-12 col-lg-2 d-flex align-items-center mb-3">
                 <div className="form-group mr-3 ms-3">
                     <label htmlFor="startDate" className="mr-2"> <h5>Start Date:</h5> </label>
@@ -73,12 +77,12 @@ const Reports = () => {
             </div>
 
             <div className="col-sm-12 col-lg-2">
-                <button onClick={handleSpecificDate} className="btn btn-primary mt-4 ms-3">Search</button>
+                <button onClick={handleSpecificDate} className="btn btn-primary mt-4 ms-3">Filter</button>
             </div>
 
-            {/* <div className="col-sm-12 col-lg-2">
+            <div className="col-sm-12 col-lg-2">
                 <button onClick={reset} className="btn btn-primary mt-4 ms-3">Reset</button>
-            </div> */}
+            </div>
 
             <div className="table-responsive">
                 <table className="table">

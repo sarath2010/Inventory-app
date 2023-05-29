@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../Navbar/Navbar';
 
 const InventoryItems = () => {
 
@@ -46,6 +47,9 @@ const InventoryItems = () => {
 
     return (
         <>
+
+            <Navbar />
+
             <button onClick={(e) => { home(e) }}>Home</button>
             <button onClick={(e) => { inventoryAdjustment(e) }}>Back</button>
             <div className="table table-responsive">
@@ -59,7 +63,7 @@ const InventoryItems = () => {
                             <th scope="col">Manufacturer</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Selling Price</th>
-                            <th scope="col">Cost price</th>
+                            <th scope="col">cost price</th>
                             <th scope="col">Description</th>
                             <th scope="col">Opening Stock</th>
                             <th scope="col">Reorder point</th>

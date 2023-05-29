@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../Navbar/Navbar';
 
 const InventoryAdjustments = () => {
 
@@ -29,11 +30,6 @@ const InventoryAdjustments = () => {
         navigate('/adjustment-reports');
     }
 
-    const home = (e) => {
-        e.preventDefault();
-        navigate('/', { replace: true })
-    }
-
     useEffect(() => {
         getItemsGroup();
     }, []);
@@ -41,14 +37,17 @@ const InventoryAdjustments = () => {
 
     return (
         <>
-            <button onClick={(e) => { home(e) }}>Home</button>
+            <Navbar />
+
+            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Inventory Adjustments</p>
+
             <button onClick={(e) => { getReports(e) }}>Reports</button>
             <div className="table table-responsive">
                 <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Group Name</th>
-                            <th scope="col">Modifications</th>
+                            <th scope="col">Manage</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,7 +56,7 @@ const InventoryAdjustments = () => {
                                 <tr key={index}>
                                     <th>{value.item_group_label}</th>
                                     <th>
-                                        <button onClick={(e) => { manage(e, value) }}>Modify</button>
+                                        <button onClick={(e) => { manage(e, value) }}>Manage</button>
                                     </th>
                                 </tr>
                             )
