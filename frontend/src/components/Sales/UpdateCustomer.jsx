@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
 
 const UpdateCustomer = () => {
 
@@ -16,7 +17,7 @@ const UpdateCustomer = () => {
             e.preventDefault();
             const response = await axios.put(`http://localhost:5000/customer/${id}`, { name, email, phone_number, billing_address });
             if (response && response.data.success) {
-                alert('Customer Updated !!!');
+                alert('New Details Updated !!!');
                 navigate('/addcustomer', { replace: true });
             }
         } catch (error) {
@@ -26,21 +27,35 @@ const UpdateCustomer = () => {
 
     return (
         <>
-            <form>
-                <label>Name</label>
-                <input type="text" onChange={(e) => { setName(e.target.value) }} value={name} />
 
-                <label>Email</label>
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} />
+            <Navbar />
 
-                <label>Phone Number</label>
-                <input type="number" onChange={(e) => { setPhoneNumber(e.target.value) }} value={phone_number} />
+            {/* LABEL-UPDATE CUSTOMER */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Update Customer Details</span>
+                </div>
+            </nav>
 
-                <label>Billing Address</label>
-                <input type="text" onChange={(e) => { setBillingAddress(e.target.value) }} value={billing_address} />
+            {/* FORM-UPDATE CUSTOMER */}
 
-                <button onClick={(e) => { updateCustomer(e) }}>Submit</button>
-            </form>
+            <div className='container-fluid bg-danger mt-1 ml-10 justify-content-center'>
+                <form>
+                    <label className="label mt-1 "><b>Name</b></label><br />
+                    <input className="ibox w-50 " type="text" onChange={(e) => { setName(e.target.value) }} value={name} /><br />
+
+                    <label className="label mt-1 "><b>Email</b></label><br />
+                    <input className="ibox w-50 " type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} /><br />
+
+                    <label className="label mt-1 "><b>Phone Number</b></label><br />
+                    <input className="ibox w-50 " type="number" onChange={(e) => { setPhoneNumber(e.target.value) }} value={phone_number} /><br />
+
+                    <label className="label mt-1 "><b>Billing Address</b></label><br />
+                    <input className="ibox w-50 " type="text" onChange={(e) => { setBillingAddress(e.target.value) }} value={billing_address} /><br /><br />
+
+                    <button onClick={(e) => { updateCustomer(e) }}><b>Update Customer</b></button><br /><br />
+                </form>
+            </div>
         </>
     )
 }

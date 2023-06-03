@@ -28,7 +28,7 @@ const OrdersList = () => {
             status: "Packed",
         });
         if (response && response.data.success) {
-            alert(`Packed Successfull Package Id ${value.order_id}`);
+            alert(`Packing completed, Package# ${value.order_id}`);
             await getOrders()
             navigate('/packages', { replace: true })
         }
@@ -57,7 +57,7 @@ const OrdersList = () => {
             order_id: await value.order_id
         });
         if (response && response.data.success) {
-            alert(`Shipped Successfull Shipped Id ${value.order_id}`);
+            alert(`Shipped with Shipping# ${value.order_id}`);
             await getOrders()
             navigate('/deliverychallans', { replace: true })
         }
@@ -82,7 +82,7 @@ const OrdersList = () => {
             delivery_status: 'Delivered',
         });
         if (response && response.data.success) {
-            alert('Order Delivered');
+            alert('Delivery of the order is completed.');
             await getOrders();
         }
     };
@@ -100,7 +100,7 @@ const OrdersList = () => {
             total_price: await value.total_price,
             invoice_id: await value.order_id,
             invoice_date: new Date(),
-            invoice_status: 'Invoiced',
+            invoice_status: 'Invoice generated and available under Invoices List',
         });
         if (response && response.data.success) {
             alert('Invoice Generated');
@@ -128,14 +128,24 @@ const OrdersList = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Orders List</p>
+            {/* LABEL-SALES ORDERS LIST */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Sales Orders List</span>
+                </div>
+            </nav>
 
-            <button onClick={goToPackages}>Packages List</button>
-            <button onClick={goToDeliveryChallans}>Delivery Challans</button>
-            <button onClick={goToInvoice}>Invoice</button>
+            <div className='container bg-danger mt-1 ml-10'>
+                <div class="d-flex justify-content-around">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goToPackages}><b>Packages List</b></button>
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goToDeliveryChallans}><b>Delivery Challans</b></button>
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goToInvoice}><b>Invoices List</b></button>
+                </div>
+            </div>
 
+            <div className='container bg-danger'>
             <div className='table-responsive'>
-                <table className="table">
+                <table className="table table-danger table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Order Id</th>
@@ -157,7 +167,7 @@ const OrdersList = () => {
                         {ordersList.map((value, index) => {
                             return (
                                 <tr key={index}>
-                                    <td>{value.order_id}</td>
+                                    <td><b>{value.order_id}</b></td>
                                     <td>{moment(value.date).format("DD-MM-YYYY")}</td>
                                     <td>{value.customer_name}</td>
                                     <td>{value.customer_email}</td>
@@ -168,26 +178,26 @@ const OrdersList = () => {
                                     <td>{value.selling_price}</td>
                                     <td>{value.quantity}</td>
                                     <td>{value.total_price}</td>
-                                    <td>{value.status}</td>
+                                    <td><b>{value.status}</b></td>
                                     <td>
                                         {value.status === "Ordered" && (
                                             <>
-                                                <button onClick={(e) => { pack(e, value) }}>Pack</button>
+                                                <button class="btn btn-primary" onClick={(e) => { pack(e, value) }}>Pack the Order</button>
                                             </>
                                         )}
                                         {value.status === "Packed" && (
                                             <>
-                                                <button onClick={(e) => { challanAndShip(e, value) }}>Generate Challan and Ship</button>
+                                                <button class="btn btn-info" onClick={(e) => { challanAndShip(e, value) }}>Delivery Challan & Ship</button>
                                             </>
                                         )}
                                         {value.status === "Shipped" && (
                                             <>
-                                                <button onClick={(e) => { markAsDelivered(e, value) }}>Mark as Delivered</button>
+                                                <button class="btn btn-warning" onClick={(e) => { markAsDelivered(e, value) }}>Mark as Delivered</button>
                                             </>
                                         )}
                                         {value.status === "Delivered" && (
                                             <>
-                                                <button onClick={(e) => { generateInvoice(e, value) }}>Generate Invoice</button>
+                                                <button class="btn btn-dark" onClick={(e) => { generateInvoice(e, value) }}>Generate Invoice</button>
                                             </>
                                         )}
                                         {value.status === "Invoiced" && (
@@ -201,6 +211,7 @@ const OrdersList = () => {
                         })}
                     </tbody>
                 </table>
+            </div>
             </div>
         </>
     )

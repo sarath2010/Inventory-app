@@ -48,21 +48,26 @@ const BillAndPaymentsPage = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Bills and Payments List</p>
+            {/* LABEL-BILLS N PAYMENTS */}
+            <nav class="navbar navbar-light  bg-success">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Bills & Payments</span>
+                </div>
+            </nav>
 
-            <div className="table table-responsive">
-                <table className="table">
+             <div className='container bg-success mt-1'><br/>
+                <table className="table table-success table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">Purchase Id</th>
+                            <th scope="col">PO Number</th>
                             <th scope="col">Item Group</th>
                             <th scope="col">Item</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Vendor's Name</th>
-                            <th scope="col">Vendor's Email</th>
-                            <th scope="col">Vendor's Phone Number</th>
-                            <th scope="col">Vendor's Payment Terms (days)</th>
+                            <th scope="col">Vendor</th>
+                            <th scope="col">Vendor Email</th>
+                            <th scope="col">Vendor Phone</th>
+                            <th scope="col">Payment Terms (days)</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Status</th>
                             <th scope="col">Manage</th>
@@ -75,17 +80,17 @@ const BillAndPaymentsPage = () => {
                                     <td>{value.purchaseId}</td>
                                     <td>{value.item_group}</td>
                                     <td>{value.item}</td>
-                                    <td>{value.order_quantity}</td>
+                                    <td>{value.order_quantity.toLocaleString('en-IN')}</td>
                                     <td>{value.date}</td>
                                     <td>{value.vendors_name}</td>
                                     <td>{value.vendors_email}</td>
                                     <td>{value.vendors_phone_number}</td>
                                     <td>{value.payment_terms}</td>
-                                    <td>{value.amount}</td>
+                                    <td>{value.amount.toLocaleString('en-IN')}</td>
                                     <td>{value.status}</td>
                                     <td>
                                         {value.status === "Bills Received" && (
-                                            <button onClick={(e) => { vendorCredit(e, value) }}>Vendor Credit Notes</button>
+                                            <button class="btn btn-dark btn-sm" onClick={(e) => { vendorCredit(e, value) }}>Vendor Credit Notes</button>
                                         )}
                                     </td>
                                 </tr>
@@ -93,6 +98,7 @@ const BillAndPaymentsPage = () => {
                         })}
                     </tbody>
                 </table>
+                <br/>
             </div>
         </>
     )

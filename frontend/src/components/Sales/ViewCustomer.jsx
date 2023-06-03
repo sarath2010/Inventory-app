@@ -29,7 +29,7 @@ const ViewCustomer = ({ reload }) => {
 
     return (
         <>
-            <table className="table mt-3">
+            <table className="table table-striped mt-3 mb-5">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -48,7 +48,7 @@ const ViewCustomer = ({ reload }) => {
                                 <td>{value.phone_number}</td>
                                 <td>{value.billing_address}</td>
                                 <td>
-                                    <button onClick={(e) => { updateCustomer(e, value) }}>
+                                    <button className="button bg-danger text-white form-control-sm" onClick={(e) => { updateCustomer(e, value) }}>
                                         Update
                                     </button>
                                 </td>

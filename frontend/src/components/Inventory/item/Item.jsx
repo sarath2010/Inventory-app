@@ -54,7 +54,10 @@ const Item = () => {
             });
 
             if (response && response.data.success) {
-                alert('Item added successfull !!!');
+                // alert('New Item Added Successfully');
+                alert(<div class="alert alert-primary" role="alert">
+                    New Item Added Successfully
+                </div>)
                 navigate('/viewitems', { replace: true });
             }
         } catch (error) {
@@ -77,62 +80,83 @@ const Item = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Add Items</p>
+            {/* LABEL-ADD ITEMS */}
+            <nav class="navbar navbar-light  bg-primary">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Add Item</span>
+                </div>
+            </nav>
 
-            <form encType='multipart/form-data'>
-                <label>Item Group</label>
-                <select className="form-select w-100" value={item_group_id} onChange={(e) => { setItemGroupId(e.target.value) }}>
-                    <option value="" disabled={true}>--Select--</option>
-                    {itemGroupData.map((item, index) => {
-                        return (
-                            <option key={index} value={item._id}>{item.item_group_label}</option>
-                        )
-                    })}
-                </select>
+            {/* FORM-ADD ITEMS */}
 
-                <label>item name</label>
-                <input type='text' onChange={(e) => { setItemName(e.target.value) }}></input>
+            <div className='container bg-primary ml-10'>
+                <form className="form mt-1 needs-validation" encType='multipart/form-data'>
+                    <div class="form-group ">
+                        <label className="label mt-1" ><b>Item Group</b></label>
+                        <select className="form-select form-select-sm w-50 mt-1" value={item_group_id} onChange={(e) => { setItemGroupId(e.target.value) }}>
+                            <option value="" disabled={true}>--Choose one--</option>
+                            {itemGroupData.map((item, index) => {
+                                return (
+                                    <option key={index} value={item._id}>{item.item_group_label}</option>
+                                )
+                            })}
+                        </select>
 
-                <label>unit</label>
-                <input type='text' onChange={(e) => { setUnit(e.target.value) }}></input>
+                        <label className="label mt-1 "><b>Name of Item</b></label><br />
+                        <input className="ibox w-50 " type='text' required onChange={(e) => { setItemName(e.target.value) }}></input><br />
 
-                <label>Dimensions</label>
-                <input type='text' onChange={(e) => { setDimensions({ length: e.target.value, width: dimensions.width, height: dimensions.height }) }} placeholder='Length'></input>
-                <input type='text' onChange={(e) => { setDimensions({ length: dimensions.length, width: e.target.value, height: dimensions.height }) }} placeholder='Width'></input>
-                <input type='text' onChange={(e) => { setDimensions({ length: dimensions.length, width: dimensions.width, height: e.target.value }) }} placeholder='Height'></input>
+                        <label className="label mt-1 "><b>Unit of measure</b></label><br />
+                        <input className="ibox w-50" type='text' onChange={(e) => { setUnit(e.target.value) }}></input><br />
 
-                <label>weight</label>
-                <input type='number' onChange={(e) => { setWeight(e.target.value) }}></input>
+                        <label className="label mt-1 "><b>Dimensions(in CM)</b></label><br />
 
-                <label>manufacturer</label>
-                <input type='text' onChange={(e) => { setManufacturer(e.target.value) }}></input>
 
-                <label>brand</label>
-                <input type='text' onChange={(e) => { setBrand(e.target.value) }}></input>
+                        <input className="ibox" type='number' onChange={(e) => { setDimensions({ length: e.target.value, width: dimensions.width, height: dimensions.height }) }} placeholder='Length'></input>
+                        <input className="ibox" type='number' onChange={(e) => { setDimensions({ length: dimensions.length, width: e.target.value, height: dimensions.height }) }} placeholder='Width'></input>
+                        <input className="ibox" type='number' onChange={(e) => { setDimensions({ length: dimensions.length, width: dimensions.width, height: e.target.value }) }} placeholder='Height'></input><br />
 
-                <label>selling price</label>
-                <input type='number' onChange={(e) => { setSellingPrice(e.target.value) }}></input>
 
-                <label>cost price</label>
-                <input type='number' onChange={(e) => { setCostPrice(e.target.value) }}></input>
+                        <label className="label mt-1 "><b>Weight (in Kg)</b></label><br />
+                        <input className="ibox w-50" type='number' onChange={(e) => { setWeight(e.target.value) }}></input><br />
 
-                <label>description</label>
-                <input type='text' onChange={(e) => { setDescription(e.target.value) }}></input>
+                        <label className="label mt-1 "><b>Manufacturer</b></label><br />
+                        <input className="ibox w-50" type='text' onChange={(e) => { setManufacturer(e.target.value) }}></input><br />
 
-                <label>opening stock</label>
-                <input type='number' onChange={(e) => { setopening_stock(e.target.value) }}></input>
+                        <label className="label mt-1 "><b>Brand</b></label><br />
+                        <input className="ibox w-50" type='text' onChange={(e) => { setBrand(e.target.value) }}></input><br />
 
-                <label>reorder_point</label>
-                <input type='number' onChange={(e) => { setReorderPoint(e.target.value) }}></input>
+                        <label className="label mt-1"><b>Selling Price (INR)</b></label><br />
+                        <input className="ibox w-50" type='number' onChange={(e) => { setSellingPrice(e.target.value) }}></input><br />
 
-                <label>preferred vendor</label>
-                <input type='text' onChange={(e) => { setPreferredVendor(e.target.value) }}></input>
+                        <label className="label mt-1"><b>Cost Price (INR)</b></label><br />
+                        <input className="ibox w-50" type='number' onChange={(e) => { setCostPrice(e.target.value) }}></input><br />
 
-                <label>image of item</label>
-                <input type="file" name='photo' onChange={(e) => { setImageOfItem(e.target.files[0]) }} />
+                        <label className="label mt-1"><b>Description</b></label><br />
+                        <input className="ibox w-50" type='text' onChange={(e) => { setDescription(e.target.value) }}></input><br />
 
-                <button onClick={(e) => { addItems(e) }}>Submit</button>
-            </form>
+                        <label className="label mt-1"><b>Opening Stock(Quantity)</b></label><br />
+                        <input className="ibox w-50" type='number' onChange={(e) => { setopening_stock(e.target.value) }}></input><br />
+
+                        <label className="label mt-1"><b>Re-order Point(Quantity)</b></label><br />
+                        <input className="ibox w-50" type='number' onChange={(e) => { setReorderPoint(e.target.value) }}></input><br />
+
+                        <label className="label mt-1"><b>Preferred Vendor</b></label><br />
+                        <input className="ibox w-50" type='text' onChange={(e) => { setPreferredVendor(e.target.value) }}></input><br />
+
+                        <label className="label mt-1"><b>Item Image(upload)</b></label><br />
+                        <input className="ibox w-50 mt-2" type="file" name='photo' onChange={(e) => { setImageOfItem(e.target.files[0]) }} /><br /><br />
+
+                        <button className="button bg-secondary form-control-sm" onClick={(e) => { addItems(e) }}><b>Submit</b></button><br /><br /><br />
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+
+
         </>
     )
 }

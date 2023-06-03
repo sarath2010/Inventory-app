@@ -29,12 +29,24 @@ const Packages = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Packages List</p>
+            {/* LABEL-PACKAGES LIST */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Packages List</span>
+                </div>
+            </nav>
 
-            <button onClick={goPack}>Go for Pack</button>
+            {/* BUTTON TOP */}
 
-            <div className='table-responsive'>
-                <table className="table">
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goPack}><b>Packaging</b></button>
+                </div>
+            </div>
+
+
+            <div className='container bg-danger ml-10'>
+                <table className="table table-danger table-striped table-bordered ">
                     <thead>
                         <tr>
                             <th scope="col">Package Id</th>
@@ -59,6 +71,8 @@ const Packages = () => {
                         })}
                     </tbody>
                 </table>
+                <br />
+                <br />
             </div>
         </>
     )

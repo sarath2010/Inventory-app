@@ -28,12 +28,23 @@ const CreditNotes = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Credit Notes</p>
+            {/* LABEL-SALES CREDIT NOTES */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Sales Credit Notes</span>
+                </div>
+            </nav>
 
-            <button onClick={addCredit}>Add Credit Notes</button>
+            {/* BUTTON TOP */}
 
-            <div className='table-responsive'>
-                <table className="table">
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={addCredit}><b>Add Credit Notes</b></button>
+                </div>
+            </div>
+
+            <div className='container bg-danger ml-10'>
+                <table className="table table-danger table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Credited Date</th>
@@ -63,6 +74,7 @@ const CreditNotes = () => {
                         })}
                     </tbody>
                 </table>
+                <br/>
             </div>
         </>
     )

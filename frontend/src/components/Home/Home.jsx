@@ -128,141 +128,27 @@ const Home = () => {
 
 
 
+
+
     return (
         <>
 
             <Navbar />
 
-            {/* Page Heading */}
+            {/* LABEL-DASHBOARD */}
             <nav class="navbar navbar-light  bg-dark">
                 <div class="container-fluid justify-content-center">
                     <span class="navbar-brand mb-0 h1 text-warning ">Dashboard</span>
                 </div>
             </nav>
 
-            {/* <div className="container-fluid mt-2">
-                <div className="row">
-                    <div className="col-sm-12 col-md-6 col-lg-4">
-                        <div className="card text-bg-primary mb-3" style={{ maxWidth: '100%' }}>
-                            <div className="card-header">Reports</div>
-                            <div className="card-body">
-                                <h5 className="card-title">Inventory Summary</h5>
-                                <p className="card-text">Total Stock : {totalStock}</p>
-                                <p className="card-text">Total Price : {totalPrice}</p>
-                            </div>
-                        </div>
-                    </div>*/}
-
-            {/* <div className="col-sm-12 col-md-6 col-lg-4">
-                <div className="card text-bg-secondary mb-3" style={{ maxWidth: '100%' }}>
-                    <div className="card-header">Reports</div>
-                    <div className="card-body">
-                        <h5 className="card-title">Inventory Aging Summary </h5>
-                        {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-            {/* <Link to={'/inventoryaging'} replace={true} className="card-link text-white h6">View Report</Link> */}
-            {/* </div>
-                 </div>
-            </div> */}
-
-            {/* <div className="col-sm-12 col-md-6 col-lg-4">
-                        <div className="card text-bg-success mb-3" style={{ maxWidth: '100%' }}>
-                            <div className="card-header">Reports</div>
-                            <div className="card-body">
-                                <h5 className="card-title">Product Sales</h5>
-                                <p className="card-text">Total Units Sold : {totalQuantitySales}</p>
-                                <p className="card-text">Total Sales : {totalPriceSales}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
-            {/* <div className="row">
-                    <div className="col-12">
-                        <div className="card text-bg-danger mb-3" style={{ maxWidth: '100%' }}>
-                            <div className="card-header">
-                                Reports
-                                {/* xx */}
-            {/* <div className="row">
-                                    <div className="d-flex justify-content-end">
-                                        <div className="form-group d-flex">
-                                            <label htmlFor="range" className="me-4 mt-auto">Filter</label>
-                                            <select id="range" className="form-control me-2 mt-4" value={filter} onChange={handleFilter}>
-                                                <option value="">--Select--</option>
-                                                <option value="Customer">Customer</option>
-                                                <option value="Items">Items</option>
-                                            </select>
-
-                                            <label htmlFor="range" className="mr-2 mt-auto me-4 text-nowrap">Customer / Items Name</label>
-                                            <select id="range" className="form-control mt-4" value={filterId} onChange={(e) => { setFilterId(e.target.value) }}>
-                                                <option value="">--Select--</option>
-                                                {customerOrItemsData.map((value, index) => {
-                                                    return filter === "Customer" ? (
-                                                        <option key={index} value={value.customer_name}>{value.name}</option>
-                                                    ) : filter === "Items" && (
-                                                        <option key={index} value={value._id}>{value.item_name}</option>
-                                                    );
-                                                })} */}
-
-            {/* </select>
-                                        </div>
-                                        <button className="btn btn-primary mt-4 ms-3" onClick={(e) => { filterSales(e) }}>Submit</button>
-                                        <button className="btn btn-primary mt-4 ms-3" onClick={(e) => { resetSales(e) }}>Reset</button>
-                                    </div>
-                                </div> */}
-            {/* xx */}
-            {/* </div>
-                            <div className="card-body">
-                                <h5 className="card-title">Sales by Items / Customer</h5> */}
-            {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <Link className="card-link text-white h6">View Report</Link> */}
-
-            {/* <div className="table table-responsive">
-                                    <table className="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" style={{ color: 'white' }}>Sales Date</th>
-                                                <th scope="col" style={{ color: 'white' }}>Sales Id</th>
-                                                <th scope="col" style={{ color: 'white' }}>Customer Name</th>
-                                                <th scope="col" style={{ color: 'white' }}>Item</th>
-                                                <th scope="col" style={{ color: 'white' }}>Item Group</th>
-                                                <th scope="col" style={{ color: 'white' }}>Quantity</th>
-                                                <th scope="col" style={{ color: 'white' }}>Unit Price</th>
-                                                <th scope="col" style={{ color: 'white' }}>Total Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {salesOrderData.map((value, index) => {
-                                                return (
-                                                    <tr key={index}>
-                                                        <td style={{ color: 'white' }}>{moment(value.date).format('DD-MM-YYYY')}</td>
-                                                        <td style={{ color: 'white' }}>{value.order_id}</td>
-                                                        <td style={{ color: 'white' }}>{value.customer_name}</td>
-                                                        <td style={{ color: 'white' }}>{value.item_name}</td>
-                                                        <td style={{ color: 'white' }}>{value.item_group}</td>
-                                                        <td style={{ color: 'white' }}>{value.quantity}</td>
-                                                        <td style={{ color: 'white' }}>{value.selling_price}</td>
-                                                        <td style={{ color: 'white' }}>{value.total_price}</td>
-                                                    </tr>
-                                                )
-                                            })}
-                                        </tbody>
-                                    </table>
-                                </div> */}
 
 
-            {/* </div>
-                        </div>
-                    </div>
-                </div>
+            {/* TABS-DASHBOARD */}
 
-            </div> */}
-
-
-            {/* NEW */}
-            
             <nav>
-                <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                <div class="nav nav-tabs justify-content-end bg-dark" id="nav-tab" role="tablist">
+                    <button class="nav-link active bg-light" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
                     <button class="nav-link bg-primary text-white" id="nav-stock-tab" data-bs-toggle="tab" data-bs-target="#nav-stock" type="button" role="tab" aria-controls="nav-stock" aria-selected="false">Stock Summary</button>
                     <button class="nav-link bg-danger text-white" id="nav-sale-tab" data-bs-toggle="tab" data-bs-target="#nav-sale" type="button" role="tab" aria-controls="nav-sale" aria-selected="false">Sales Summary</button>
                     <button class="nav-link bg-success text-white" id="nav-sales-tab" data-bs-toggle="tab" data-bs-target="#nav-sales" type="button" role="tab" aria-controls="nav-sales" aria-selected="false">Sales Report</button>
@@ -272,14 +158,29 @@ const Home = () => {
 
             <div class="tab-content" id="nav-tabContent">
 
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <div class="container-fluid max-width bg-warning text-center" id="Home1">
+                        Welcome!
+                        You're at Dashboard of Inventory Operations App.
+                        Head to Tabs for various reports and summaries.
+                        All other options are accessible via the navbar at top.
+                    </div>
+
+                    <div class="box">
+                    <img src="Home.jpg" alt="logo" />
+                    </div>
+
+
+
+                    
 
                 </div>
 
 
                 <div class="tab-pane fade" id="nav-stock" role="tabpanel" aria-labelledby="nav-stock-tab">
 
-                    <div className="container-fluid mt-2">
+                    <div className="container-fluid ">
                         <div className="row">
                             {/* <div className="col-sm-12 col-md-6 col-lg-4"> */}
                             <div className="card text-bg-primary mb-3" style={{ maxWidth: '100%' }}>
@@ -299,7 +200,7 @@ const Home = () => {
 
                 <div class="tab-pane fade" id="nav-sale" role="tabpanel" aria-labelledby="nav-sale-tab">
 
-                    <div className="container-fluid mt-2">
+                    <div className="container-fluid ">
                         <div className="row">
                             {/* <div className="col-sm-12 col-md-6 col-lg-4"> */}
                             <div className="card text-bg-danger mb-3 " style={{ maxWidth: '100%' }}>
@@ -318,10 +219,10 @@ const Home = () => {
 
             <div class="tab-pane fade" id="nav-sales" role="tabpanel" aria-labelledby="nav-sales-tab">
 
-                <div className="row">
+                {/* <div className="row"> */}
 
-                    <div className="col-12">
-                        <div className="card text-bg-success mb-3" style={{ maxWidth: '100%' }}>
+                    {/* <div className="col-12"> */}
+                        <div className="card text-bg-success" style={{ maxWidth: '100%' }}>
                             <div className="card-header">Report</div>
                             <div className="row">
                                 <div className="card-body">
@@ -329,14 +230,14 @@ const Home = () => {
 
                                     <div className="d-flex justify-content-center">
                                         <div className="form-group d-flex">
-                                            <label htmlFor="range" className="me-4 mt-4">Filter</label>
+
                                             <select id="range" className="form-control form-control-sm me-2 mt-4 text-bg-success" placeholder=".form-control-sm" value={filter} onChange={handleFilter}>
                                                 <option value="">--Select--</option>
                                                 <option value="Customer">Customer</option>
                                                 <option value="Items">Items</option>
                                             </select>
+                                            <label htmlFor="range" className="me-4 mt-4">Filter</label>
 
-                                            <label htmlFor="range" className="mr-2 mt-4 me-4 text-nowrap">Customer / Items Name</label>
                                             <select id="range" className="form-control form-control-sm mt-4 text-bg-success" placeholder=".form-control-sm" value={filterId} onChange={(e) => { setFilterId(e.target.value) }}>
                                                 <option value="">--Select--</option>
                                                 {customerOrItemsData.map((value, index) => {
@@ -348,6 +249,7 @@ const Home = () => {
                                                 })}
 
                                             </select>
+                                            <label htmlFor="range" className="mr-2 mt-4 me-4 text-nowrap">Customer / Items Name</label>
                                         </div>
                                         <button className="btn btn-outline-warning mt-4 ms-3" onClick={(e) => { filterSales(e) }}>Submit</button>
                                         <button className="btn btn-outline-dark text-light mt-4 ms-3" onClick={(e) => { resetSales(e) }}>Reset</button>
@@ -391,8 +293,8 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
 
             </div>
 
@@ -400,10 +302,10 @@ const Home = () => {
 
             <div class="tab-pane fade" id="nav-ageing" role="tabpanel" aria-labelledby="nav-ageing-tab">
 
-                {/* <div className="row">
+                <div className="row  bg-secondary">
 
-                    <div className="col-12">
-                        <div className="card text-bg-secondary mt-1" style={{ maxWidth: '100%' }}>
+                    <div className="col-12  bg-secondary">
+                        <div className="card text-bg-secondary " style={{ maxWidth: '100%' }}>
                             <div className="card-header">Report</div>
                             <div className="row">
                                 <div className="card-body">
@@ -429,9 +331,9 @@ const Home = () => {
                                                     return (
                                                         <tr key={index}>
                                                             <td>{value.item_name}</td>
-                                                            <td>{differenceInDays >= 0 && differenceInDays < 31 ? (value.opening_stock) : ('-')}</td>
-                                                            <td>{differenceInDays > 30 && differenceInDays < 61 ? (value.opening_stock) : ('-')}</td>
-                                                            <td>{differenceInDays > 60 && differenceInDays < 91 ? (value.opening_stock) : ('-')}</td>
+                                                            <td>{differenceInDays >= 0 && differenceInDays < 31 ? (value.opening_stock.toLocaleString('en-IN')) : ('-')}</td>
+                                                            <td>{differenceInDays > 30 && differenceInDays < 61 ? (value.opening_stock.toLocaleString('en-IN')) : ('-')}</td>
+                                                            <td>{differenceInDays > 60 && differenceInDays < 91 ? (value.opening_stock.toLocaleString('en-IN')) : ('-')}</td>
                                                             <td>{differenceInDays > 90 ? (value.opening_stock) : ('-')}</td>
                                                         </tr>
                                                     )
@@ -443,84 +345,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div> */}
-
-
-<div className="row">
-
-<div className="col-12">
-    <div className="card text-bg-success mb-3" style={{ maxWidth: '100%' }}>
-        <div className="card-header">Report</div>
-        <div className="row">
-            <div className="card-body">
-                <h5 className="card-title d-flex justify-content-center">Sales Details</h5>
-
-                <div className="d-flex justify-content-center">
-                    <div className="form-group d-flex">
-                        <label htmlFor="range" className="me-4 mt-4">Filter</label>
-                        <select id="range" className="form-control form-control-sm me-2 mt-4 text-bg-success" placeholder=".form-control-sm" value={filter} onChange={handleFilter}>
-                            <option value="">--Select--</option>
-                            <option value="Customer">Customer</option>
-                            <option value="Items">Items</option>
-                        </select>
-
-                        <label htmlFor="range" className="mr-2 mt-4 me-4 text-nowrap">Customer / Items Name</label>
-                        <select id="range" className="form-control form-control-sm mt-4 text-bg-success" placeholder=".form-control-sm" value={filterId} onChange={(e) => { setFilterId(e.target.value) }}>
-                            <option value="">--Select--</option>
-                            {customerOrItemsData.map((value, index) => {
-                                return filter === "Customer" ? (
-                                    <option key={index} value={value.customer_name}>{value.name}</option>
-                                ) : filter === "Items" && (
-                                    <option key={index} value={value._id}>{value.item_name}</option>
-                                );
-                            })}
-
-                        </select>
-                    </div>
-                    <button className="btn btn-outline-warning mt-4 ms-3" onClick={(e) => { filterSales(e) }}>Submit</button>
-                    <button className="btn btn-outline-dark text-light mt-4 ms-3" onClick={(e) => { resetSales(e) }}>Reset</button>
                 </div>
-            </div>
-        </div>
-
-        <div className="card-body">
-
-            <div className="table table-responsive">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" style={{ color: 'white' }}>Sales Date</th>
-                            <th scope="col" style={{ color: 'white' }}>Sales Id</th>
-                            <th scope="col" style={{ color: 'white' }}>Customer Name</th>
-                            <th scope="col" style={{ color: 'white' }}>Item</th>
-                            <th scope="col" style={{ color: 'white' }}>Item Group</th>
-                            <th scope="col" style={{ color: 'white' }}>Quantity</th>
-                            <th scope="col" style={{ color: 'white' }}>Unit Price</th>
-                            <th scope="col" style={{ color: 'white' }}>Total Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {salesOrderData.map((value, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td style={{ color: 'white' }}>{moment(value.date).format('DD-MM-YYYY')}</td>
-                                    <td style={{ color: 'white' }}>{value.order_id}</td>
-                                    <td style={{ color: 'white' }}>{value.customer_name}</td>
-                                    <td style={{ color: 'white' }}>{value.item_name}</td>
-                                    <td style={{ color: 'white' }}>{value.item_group}</td>
-                                    <td style={{ color: 'white' }}>{value.quantity.toLocaleString('en-IN')}</td>
-                                    <td style={{ color: 'white' }}>{value.selling_price.toLocaleString('en-IN')}</td>
-                                    <td style={{ color: 'white' }}>{value.total_price.toLocaleString('en-IN')}</td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 
 
             </div>

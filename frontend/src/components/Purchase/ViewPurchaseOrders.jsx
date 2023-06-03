@@ -45,12 +45,23 @@ const ViewPurchaseOrders = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Purchase Orders List</p>
+            {/* LABEL-PO LIST */}
+            <nav class="navbar navbar-light  bg-success">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Purchase Orders List</span>
+                </div>
+            </nav>
 
-            <button onClick={goToPurchase}>Purchase</button>
+            {/* BUTTON TOP */}
 
-            <div className="table table-responsive">
-                <table className="table">
+            <div className='container bg-success mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-success form-control-sm mt-2 mb-2 "onClick={goToPurchase}><b>Create Purchase Order</b></button>
+                </div>
+            </div>
+
+           <div className='container bg-success ml-10'>
+                <table className="table table-success table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Purchase Id</th>
@@ -84,13 +95,15 @@ const ViewPurchaseOrders = () => {
                                     <td>{value.status}</td>
                                     <td>
                                         {value.status === "Order Issued" && (
-                                            <button onClick={(e) => { goToBill(e, value) }}>Enter Vendor Bill</button>
+                                            <button class="btn btn-dark btn-sm" onClick={(e) => { goToBill(e, value) }}>Enter Vendor Bill</button>
                                         )}
                                     </td>
                                 </tr>
                             )
                         })}
                     </tbody>
+                    <br/>
+                    <br/>
                 </table>
             </div>
         </>

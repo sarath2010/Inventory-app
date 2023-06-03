@@ -39,12 +39,23 @@ const DeliveryChallans = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Delivery Challans</p>
+            {/* LABEL-DELIVERY CHALLANS */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Delivery Challans</span>
+                </div>
+            </nav>
 
-            <button onClick={goToOrdersList}>Generate Delivery Challans</button>
+            {/* BUTTON TOP */}
 
-            <div className='table-responsive'>
-                <table className="table">
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goToOrdersList}><b>Generate Delivery Challans</b></button>
+                </div>
+            </div>
+
+            <div className='container bg-danger ml-10'>
+                <table className="table table-danger table-striped table-bordered ">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
@@ -63,13 +74,15 @@ const DeliveryChallans = () => {
                                     <td>{value.phone_number}</td>
                                     <td>{value.billing_address}</td>
                                     <td>
-                                        <button onClick={(e) => { generateChallan(e, value) }}>Display Challans</button>
+                                        <button class="btn btn-danger" onClick={(e) => { generateChallan(e, value) }}>Display Challans</button>
                                     </td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
+                <br />
+                <br />
             </div>
         </>
     )

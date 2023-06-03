@@ -32,24 +32,36 @@ const AddCustomers = () => {
     return (
         <>
             <Navbar />
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Add Customer</p>
-            <form>
-                <label>Name</label>
-                <input type="text" onChange={(e) => { setName(e.target.value) }} value={name} />
 
-                <label>Email</label>
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} />
+            {/* LABEL-ADD Customer */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Add Customers</span>
+                </div>
+            </nav>
 
-                <label>Phone Number</label>
-                <input type="number" onChange={(e) => { setPhoneNumber(e.target.value) }} value={phone_number} />
+            <div className='container-fluid bg-danger mt-1 ml-10 justify-content-center'>
+                <form>
+                    <label className="label mt-1 "><b>Name</b></label><br />
+                    <input className="ibox w-50 " type="text" onChange={(e) => { setName(e.target.value) }} value={name} /><br />
 
-                <label>Billing Address</label>
-                <input type="text" onChange={(e) => { setBillingAddress(e.target.value) }} value={billing_address} />
+                    <label className="label mt-1 "><b>Email</b></label><br />
+                    <input className="ibox w-50 " type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} /><br />
 
-                <button onClick={(e) => { addCustomer(e) }}>Submit</button>
-            </form>
-            <p className='text-center text-primary mt-4' style={{ fontSize: '21px' }}>Avaliable Customers</p>
-            <ViewCustomer reload={reload} />
+                    <label className="label mt-1 "><b>Phone Number</b></label><br />
+                    <input className="ibox w-50 " type="number" onChange={(e) => { setPhoneNumber(e.target.value) }} value={phone_number} /><br />
+
+                    <label className="label mt-1 "><b>Billing Address</b></label><br />
+                    <input className="ibox w-50 " type="text" onChange={(e) => { setBillingAddress(e.target.value) }} value={billing_address} /><br /><br />
+
+                    <button onClick={(e) => { addCustomer(e) }}><b>Submit</b></button> <br /><br />
+                </form>
+
+                </div>
+                <p className='text-center text-danger mt-4' style={{ fontSize: '21px' }}>Customers List</p>
+                <ViewCustomer reload={reload} />
+
+            
         </>
     )
 }

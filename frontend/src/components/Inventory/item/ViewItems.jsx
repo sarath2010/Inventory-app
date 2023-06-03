@@ -27,10 +27,15 @@ const ViewItems = () => {
 
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>View Items</p>
+             {/* LABEL-VIEW ITEMS */}
+             <nav class="navbar navbar-light  bg-primary">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">View Items</span>
+                </div>
+            </nav>
 
             <div className="table-responsive mt-3">
-                <table className="table table-striped table-hover table-bordered border-primary">
+                <table className="table table-striped table-hover table-bordered border-primary table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Item Name</th>
@@ -58,14 +63,14 @@ const ViewItems = () => {
                                     <td>{value.weight}</td>
                                     <td>{value.manufacturer}</td>
                                     <td>{value.brand}</td>
-                                    <td>{value.selling_price}</td>
-                                    <td>{value.cost_price}</td>
+                                    <td>{value.selling_price.toLocaleString('en-IN')}</td>
+                                    <td>{value.cost_price.toLocaleString('en-IN')}</td>
                                     <td>{value.description}</td>
-                                    <td>{value.opening_stock}</td>
-                                    <td>{value.reorder_point}</td>
+                                    <td>{value.opening_stock.toLocaleString('en-IN')}</td>
+                                    <td>{value.reorder_point.toLocaleString('en-IN')}</td>
                                     <td>{value.preferred_vendor}</td>
                                     <td>
-                                        {<img src={value.image_of_item}></img>}
+                                        {<img className="img-thumbnail rounded" src={value.image_of_item}></img>}
                                     </td>
                                 </tr>
                             )

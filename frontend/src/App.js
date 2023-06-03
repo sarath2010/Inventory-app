@@ -30,8 +30,7 @@ import ViewPurchaseOrders from './components/Purchase/ViewPurchaseOrders';
 import BillPayments from './components/Purchase/BillPayments';
 import BillAndPaymentsPage from './components/Purchase/BillAndPaymentsPage';
 import VendorCredits from './components/Purchase/VendorCredits';
-import InventoryAgingSummaryReport from './components/Home/InventoryAgingSummaryReport';
-import Footer from './components/Footer/Footer';
+
 
 function App() {
     return (
@@ -69,7 +68,6 @@ function App() {
             <Route path='billpayments' element={<BillPayments />}></Route>
             <Route path='billandpayments' element={<BillAndPaymentsPage />}></Route>
             <Route path='/vendorscredit' element={<VendorCredits />}></Route>
-            <Route path='/inventoryaging' element={<InventoryAgingSummaryReport />}></Route>
             </Routes>
             
     );

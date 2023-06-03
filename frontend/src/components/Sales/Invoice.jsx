@@ -39,12 +39,23 @@ const Invoice = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Invoice</p>
+            {/* LABEL-INVOICES LIST */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Sales Invoices</span>
+                </div>
+            </nav>
 
-            <button onClick={goToGenerateInvoice}>Generate Invoice</button>
+{/* BUTTON TOP */}
 
-            <div className='table-responsive'>
-                <table className="table">
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+            <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goToGenerateInvoice}><b>Generate Invoice</b></button>
+            </div>
+            </div>
+
+            <div className='container bg-danger ml-10'>
+                <table className="table table-danger table-striped table-bordered ">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
@@ -63,13 +74,15 @@ const Invoice = () => {
                                     <td>{value.phone_number}</td>
                                     <td>{value.billing_address}</td>
                                     <td>
-                                        <button onClick={(e) => { generateInvoice(e, value) }}>Display Invoice</button>
+                                        <button class="btn btn-dark btn-sm" onClick={(e) => { generateInvoice(e, value) }}>Display Invoice</button>
                                     </td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
+                <br />
+                <br />
             </div>
         </>
     )

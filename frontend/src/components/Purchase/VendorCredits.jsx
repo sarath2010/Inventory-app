@@ -21,10 +21,15 @@ const VendorCredits = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Vendor Credit Notes</p>
+            {/* LABEL-VENDOR CREDITS */}
+            <nav class="navbar navbar-light  bg-success">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Bills & Payments</span>
+                </div>
+            </nav>
 
-            <div className="table table-responsive">
-                <table className="table">
+            <div className='container bg-success mt-1'><br/>
+                <table className="table table-success table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Credit Date</th>
@@ -64,6 +69,7 @@ const VendorCredits = () => {
                         })}
                     </tbody>
                 </table>
+                <br/>
             </div>
         </>
     )

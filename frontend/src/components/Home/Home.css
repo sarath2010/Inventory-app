@@ -1,26 +1,14 @@
 *{
     margin: 0;
-    padding:0;
-    /* background-image: url(Home.jpg); */
-    background-size: cover;
-    /* background-color: darkgray; */
+    padding:0;  
 }
 
-.home-buttons{
-    margin-right: 50%;
+.card{
+    height: 40rem;
 }
 
-.button-home{
-    background-image: none;
-    background-color: blueviolet;
-    color:whitesmoke;
-    padding-left: 10px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-left: 1000px;
-    margin-top: 25px;
-
+img {
+  width: 100%; /* takes the 100 % width of its container (.box div)*/
+  height: 100%; /* takes the 100 % height of its container (.box div)*/
 }
-
 

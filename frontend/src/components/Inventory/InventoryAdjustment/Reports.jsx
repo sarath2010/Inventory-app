@@ -61,31 +61,45 @@ const Reports = () => {
     return (
         <>
             <Navbar />
-            
+
+            {/* LABEL-ADJ LIST */}
+            <nav class="navbar navbar-light  bg-primary">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Inventory Adjustments List</span>
+                </div>
+            </nav>
+
+            {/* ADJ FILTER */}
+
             <div className="col-sm-12 col-lg-2 d-flex align-items-center mb-3">
                 <div className="form-group mr-3 ms-3">
-                    <label htmlFor="startDate" className="mr-2"> <h5>Start Date:</h5> </label>
+                    <label htmlFor="startDate" className="mr-2"> <h6><b>Start Date:</b></h6> </label>
                     <DatePicker className="form-control" dateFormat="dd/MM/yyyy" selected={startDate} onChange={(date) => { setStartDate(date) }} shouldCloseOnSelect={true} />
                 </div>
             </div>
 
             <div className="col-sm-12 col-lg-2 d-flex align-items-center mb-3">
                 <div className="form-group mr-3 ms-3">
-                    <label htmlFor="endDate" className="mr-2 analysis-label"> <h5>End Date:</h5> </label>
+                    <label htmlFor="endDate" className="mr-2 analysis-label"> <h6><b>End Date:</b></h6> </label>
                     <DatePicker className="form-control" dateFormat="dd/MM/yyyy" selected={endDate} onChange={(date) => { setEndDate(date) }} shouldCloseOnSelect={true} />
                 </div>
             </div>
 
-            <div className="col-sm-12 col-lg-2">
+            <div className="col-sm-12 col-lg-2 mb-3">
                 <button onClick={handleSpecificDate} className="btn btn-primary mt-4 ms-3">Filter</button>
+                <button onClick={reset} className="btn btn-dark mt-4 ms-3 ">Reset</button>
             </div>
 
-            <div className="col-sm-12 col-lg-2">
-                <button onClick={reset} className="btn btn-primary mt-4 ms-3">Reset</button>
-            </div>
+            {/*ADJ LIST */}
+            
+            <nav class="navbar ">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-primary"><u>Inventory Adjustments List</u></span>
+                </div>
+            </nav>
 
             <div className="table-responsive">
-                <table className="table">
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Item Name</th>

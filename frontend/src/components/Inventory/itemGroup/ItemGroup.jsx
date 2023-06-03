@@ -12,7 +12,7 @@ const ItemGroup = () => {
             e.preventDefault();
             const response = await axios.post('http://localhost:5000/items-group', { item_group_label });
             if (response && response.data.success) {
-                alert('Item Group Added Successfull !!!');
+                alert('Item Group Entered Successfully');
                 await getGroup();
             };
         } catch (error) {
@@ -40,20 +40,30 @@ const ItemGroup = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Items Group</p>
+            {/* LABEL-ADD ITEMS-GROUP */}
+            <nav class="navbar navbar-primary  bg-primary">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Add Item-Group</span>
+                </div>
+            </nav>
 
-            <div className="container-fluid">
+            {/* GROUP ADD */}
+
+            <div className="container-fluid ">
                 <form className='row col-sm-12 col-md-6 mx-auto'>
-                    <div className='mb-3 mt-2'>
-                        <label class="form-label">Item Group Name</label>
-                        <input type="text" class="form-control" onChange={(e) => { setItemGroupLabel(e.target.value) }} placeholder='Enter Group Name' />
+                    <div className='mb-3 mt-2 text-center'>
+                        <label class="form-label mt-1"><b>Name for Item Group</b></label><br />
+                        <input type="text" class="form-control mt-1 form-control-sm" onChange={(e) => { setItemGroupLabel(e.target.value) }} placeholder='Enter the name here' /><br />
+
+                        <button className='button bg-secondary text-white w-50 form-control-sm' onClick={(e) => { addGroup(e) }} type='submit'><b>Add Group</b></button>
                     </div>
-                    <button className='btn btn-primary w-100' onClick={(e) => { addGroup(e) }} type='submit'>Add item group</button>
                 </form>
 
-                <p className='text-center text-primary mt-4' style={{ fontSize: '21px' }}>Avaliable Items Group</p>
+                {/* GROUPS LIST */}
 
-                <ul class="list-group col-sm-12 col-md-6 mt-4 mx-auto">
+                <p className='text-center text-primary mt-4' style={{ fontSize: '21px' }}>Item-Groups List</p>
+
+                <ul class="list-group list-group-item-primary form-control-sm col-sm-12 col-md-6 mt-4 mb-10 mx-auto ">
                     {
                         groupData.map((value, index) => {
                             return (

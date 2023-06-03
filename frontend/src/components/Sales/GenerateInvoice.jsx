@@ -27,9 +27,39 @@ const GenerateInvoice = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Generate Invoice</p>
-            <div className='table-responsive'>
-                <table className="table">
+            {/* LABEL-CUSTOMER DC */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Invoices by Customer</span>
+                </div>
+            </nav>
+
+            <div className='container bg-danger text-white ml-10 mt-1'><br />
+                <p><h5><u>Customer</u></h5></p>
+                <table className="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Customer Email</th>
+                            <th scope="col">Customer Phone Number</th>
+                            <th scope="col">Customer Billing Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{name}</td>
+                            <td>{email}</td>
+                            <td>{phone_number}</td>
+                            <td>{billing_address}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div className='container bg-danger ml-10 mt-1'><br />
+                <p className='text-white'><u><h5>Invoices</h5></u></p>
+                <table className="table table-danger table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Order Id</th>
@@ -53,24 +83,7 @@ const GenerateInvoice = () => {
                         })}
                     </tbody>
                 </table>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Customer Name</th>
-                            <th scope="col">Customer Email</th>
-                            <th scope="col">Customer Phone Number</th>
-                            <th scope="col">Customer Billing Address</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{name}</td>
-                            <td>{email}</td>
-                            <td>{phone_number}</td>
-                            <td>{billing_address}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <br />
             </div>
         </>
     )

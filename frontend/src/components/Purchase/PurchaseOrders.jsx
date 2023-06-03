@@ -42,7 +42,7 @@ const PurchaseOrders = () => {
             item_id
         });
         if (response && response.data.success) {
-            alert('Purchase Successfully !!!');
+            alert('Purchase Order generated.');
             setItemGroup('');
             setItemGroupId('')
             setItemName();
@@ -118,68 +118,86 @@ const PurchaseOrders = () => {
 
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Purchase Orders</p>
+            {/* LABEL-PURCHASE ORDER */}
+            <nav class="navbar navbar-light  bg-success">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Purchase Orders</span>
+                </div>
+            </nav>
 
-            <button onClick={goToPurchaseList}>Purchase List</button>
+            {/* BUTTON TOP */}
+            <div className='container bg-success mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-success form-control-sm mt-2 mb-2 " onClick={goToPurchaseList}><b>Purchase List</b></button>
+                </div>
+            </div>
 
-            <label>Items Group</label>
-            <select className="form-select" value={item_group_id} onChange={handleItemsGroupChange}>
-                <option value="" disabled={true}>Select Group</option>
-                {itemsGroupData.map((item, index) => {
-                    return (
-                        <option key={index} value={item._id}>{item.item_group_label}</option>
-                    )
-                })}
-            </select>
 
-            <label>Items</label>
-            <select className="form-select" value={item_id} onChange={handleItemsChange}>
-                <option value="" disabled={true}>Select Item</option>
-                {itemsData.map((item, index) => {
-                    return (
-                        <option key={index} value={item._id}>{item.item_name}</option>
-                    )
-                })}
-            </select>
+            <div className='container bg-success mt-1 ml-10'>
+                <label className="label mt-1 ">Items Group</label>
+                <select className="form-select form-select-sm w-50 mt-1" value={item_group_id} onChange={handleItemsGroupChange}>
+                    <option value="" disabled={true}>--Select Group--</option>
+                    {itemsGroupData.map((item, index) => {
+                        return (
+                            <option key={index} value={item._id}>{item.item_group_label}</option>
+                        )
+                    })}
+                </select>
 
-            <label>Item Group</label>
-            <input className='form-control' disabled={true} defaultValue={item_group} />
+                <label className="label mt-1 ">Items</label>
+                <select className="form-select form-select-sm w-50 mt-1" value={item_id} onChange={handleItemsChange}>
+                    <option value="" disabled={true}>--Select Item--</option>
+                    {itemsData.map((item, index) => {
+                        return (
+                            <option key={index} value={item._id}>{item.item_name}</option>
+                        )
+                    })}
+                </select>
 
-            <label>Item Name</label>
-            <input className='form-control' disabled={true} defaultValue={item_name} />
+                <label className="label mt-1 ">Item Group</label>
+                <input className='form-control w-50' disabled={true} defaultValue={item_group} />
 
-            <label>Cost Price</label>
-            <input className='form-control' disabled={true} defaultValue={cost_price} />
+                <label className="label mt-1 ">Item Name</label>
+                <input className='form-control w-50' disabled={true} defaultValue={item_name} />
 
-            <label>Vendor Selection</label>
-            <select className="form-select" value={vendors} onChange={handleVendorsSelection}>
-                <option value="" disabled={true}>--Select--</option>
-                {vendorsData.map((item, index) => {
-                    return (
-                        <option key={index} value={item._id}>{item.name}</option>
-                    )
-                })}
-            </select>
+                <label className="label mt-1 ">Cost Price</label>
+                <input className='form-control w-50' disabled={true} defaultValue={cost_price} />
 
-            <label>Vendor Name</label>
-            <input className='form-control' disabled={true} defaultValue={vendors_name} />
+                <label className="label mt-1 ">Vendor Selection</label>
+                <select className="form-select form-select-sm w-50 mt-1" value={vendors} onChange={handleVendorsSelection}>
+                    <option value="" disabled={true}>--Select Vendor--</option>
+                    {vendorsData.map((item, index) => {
+                        return (
+                            <option key={index} value={item._id}>{item.name}</option>
+                        )
+                    })}
+                </select>
 
-            <label>Vendor Email</label>
-            <input className='form-control' disabled={true} defaultValue={vendors_email} />
+                <label className="label mt-1 ">Vendor Name</label>
+                <input className='form-control w-50' disabled={true} defaultValue={vendors_name} />
 
-            <label>Vendor Address</label>
-            <input className='form-control' disabled={true} defaultValue={vendors_phone_number} />
+                <label className="label mt-1 ">Vendor Email</label>
+                <input className='form-control w-50' disabled={true} defaultValue={vendors_email} />
 
-            <label>Payment Terms</label>
-            <input type='number' className='form-control' disabled={true} defaultValue={payment_terms} />
+                <label className="label mt-1 ">Vendor Address</label>
+                <input className='form-control w-50' disabled={true} defaultValue={vendors_phone_number} />
 
-            <label>Quantity to Purchase</label>
-            <input type='number' className='form-control' value={quantity} onChange={(e) => { setQuantity(e.target.value) }} />
+                <label className="label mt-1 ">Payment Terms</label>
+                <input className='form-control w-50' type='number' disabled={true} defaultValue={payment_terms} />
 
-            <label>Total Price</label>
-            <input className='form-control' disabled={true} value={total_price} />
+                <label className="label mt-1 ">Quantity to Purchase</label>
+                <input className='form-control w-50' type='number' value={quantity} onChange={(e) => { setQuantity(e.target.value) }} />
 
-            <button onClick={(e) => { purchase(e) }}>Purchase</button>
+                <label className="label mt-1 ">Total Price</label>
+                <input className='form-control w-50' disabled={true} value={total_price} /><br />
+
+                <button className="button bg-info form-control-sm " onClick={(e) => { purchase(e) }}>Purchase</button>
+                <br />
+                <br />
+                <br />
+            </div>
+
+
         </>
     )
 }

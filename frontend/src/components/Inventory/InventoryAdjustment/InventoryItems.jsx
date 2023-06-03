@@ -50,10 +50,16 @@ const InventoryItems = () => {
 
             <Navbar />
 
-            <button onClick={(e) => { home(e) }}>Home</button>
-            <button onClick={(e) => { inventoryAdjustment(e) }}>Back</button>
-            <div className="table table-responsive">
-                <table className="table">
+            {/* LABEL-ADJ LIST */}
+            <nav class="navbar navbar-light  bg-primary">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Item Selection for Adjustments</span>
+                </div>
+            </nav>
+
+            {/* LIST OF ADJS */}
+            <div className='container bg-primary mt-1 mx-auto'>
+                <table className="table table-primary table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Item Name</th>
@@ -90,7 +96,7 @@ const InventoryItems = () => {
                                     <th>{value.preferred_vendor}</th>
                                     <th>{value.image_of_item}</th>
                                     <th>
-                                        <button onClick={(e) => { adjust(e, value) }}>Adjust</button>
+                                        <button className="button bg-primary text-white" onClick={(e) => { adjust(e, value) }}>Adjust</button>
                                     </th>
                                 </tr>
                             )

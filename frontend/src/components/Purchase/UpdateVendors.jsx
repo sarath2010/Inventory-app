@@ -16,9 +16,9 @@ const UpdateVendors = () => {
     const updateVendors = async (e) => {
         try {
             e.preventDefault();
-            const response = await axios.put(`http://localhost:5000/vendors/${id}`, { name, email, phone_number, address ,payment_terms});
+            const response = await axios.put(`http://localhost:5000/vendors/${id}`, { name, email, phone_number, address, payment_terms });
             if (response && response.data.success) {
-                alert('Vendors Updated !!!');
+                alert('Vendor details updated.');
                 navigate('/vendors', { replace: true });
             }
         } catch (error) {
@@ -30,28 +30,36 @@ const UpdateVendors = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Update Vendors</p>
+            {/* LABEL-UPDATE VENDORS */}
+            <nav class="navbar navbar-light  bg-success">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Update Vendors</span>
+                </div>
+            </nav>
 
-            <form>
-                <label>Name</label>
-                <input type="text" onChange={(e) => { setName(e.target.value) }} value={name} />
+            <div className='container bg-success ml-10 mt-1 align-content-end'>
+                <form>
+                    <label className="label mt-1 "><b>Name</b></label>
+                    <input className='form-control w-50' type="text" onChange={(e) => { setName(e.target.value) }} value={name} />
 
-                <label>Email</label>
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} />
+                    <label className="label mt-1 "><b>Email</b></label>
+                    <input className='form-control w-50' type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} />
 
-                <label>Phone Number</label>
-                <input type="number" onChange={(e) => { setPhoneNumber(e.target.value) }} value={phone_number} />
+                    <label className="label mt-1 "><b>Phone Number</b></label>
+                    <input className='form-control w-50' type="number" onChange={(e) => { setPhoneNumber(e.target.value) }} value={phone_number} />
 
-                <label>Billing Address</label>
-                <input type="text" onChange={(e) => { setAddress(e.target.value) }} value={address} />
+                    <label className="label mt-1 "><b>Billing Address</b></label>
+                    <input className='form-control w-50' type="text" onChange={(e) => { setAddress(e.target.value) }} value={address} />
 
-                <label>Payment Terms</label>
-                <input type="text" onChange={(e) => { setPaymentTerms(e.target.value) }} value={payment_terms} />
+                    <label className="label mt-1 "><b>Payment Terms</b></label>
+                    <input className='form-control w-50' type="number" onChange={(e) => { setPaymentTerms(e.target.value) }} value={payment_terms} /><br/>
 
-                <button onClick={(e) => { updateVendors(e) }}>Submit</button>
-            </form>
-        </>
-    )
+                    <button class="btn btn-info" onClick={(e) => { updateVendors(e) }}>Update</button>
+                </form>
+                <br/>
+                </div>
+            </>
+            )
 }
 
-export default UpdateVendors
+            export default UpdateVendors

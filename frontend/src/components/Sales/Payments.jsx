@@ -36,7 +36,7 @@ const Payments = () => {
             received_date
         });
         if (response && response.data.success) {
-            alert('Payment Added Successfully !!!');
+            alert('Payment successfully added.');
             setCustomerId('');
             setCustomerName('');
             setCustomerEmail('');
@@ -66,44 +66,61 @@ const Payments = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Received Payments</p>
+            {/* LABEL-PAYMENTS */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Payments Received</span>
+                </div>
+            </nav>
 
-            <button onClick={viewPayment}>Payments List</button>
-            <form>
-                <label>Choose Customer</label>
-                <select className="form-select" value={customer_id} onChange={handleCustomerChange}>
-                    <option value="" disabled={true}>Select Customer</option>
-                    {customerData.map((item, index) => {
-                        return (
-                            <option key={index} value={item._id}>{item.name}</option>
-                        )
-                    })}
-                </select>
+            {/* BUTTON TOP */}
 
-                <label>Customer Name</label>
-                <input className='form-control' disabled={true} defaultValue={customer_name} />
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={viewPayment}><b>Payments Received List</b></button>
+                </div>
+            </div>
 
-                <label>Customer Email</label>
-                <input className='form-control' disabled={true} defaultValue={customer_email} />
+            <div className='container bg-danger ml-10'>
+                <form className="form needs-validation">
+                    <label className="label mt-1 "><b>Choose Customer</b></label>
+                    <select className="form-select form-select-sm w-50 mt-1" value={customer_id} onChange={handleCustomerChange}>
+                        <option value="" disabled={true}>--Select Customer--</option>
+                        {customerData.map((item, index) => {
+                            return (
+                                <option key={index} value={item._id}>{item.name}</option>
+                            )
+                        })}
+                    </select>
 
-                <label>Customer Address</label>
-                <input className='form-control' disabled={true} defaultValue={customer_address} />
+                    <label className="label mt-1 "><b>Customer Name</b></label>
+                    <input className='form-control w-50' disabled={true} defaultValue={customer_name} />
 
-                <label>Mode of Payment</label>
-                <select className="form-select" value={payment_mode} onChange={(e) => { setPaymentMode(e.target.value) }}>
-                    <option value="" disabled={true}>Select Payment</option>
-                    <option value="Cash">Cash</option>
-                    <option value="Online">Online</option>
-                </select>
+                    <label className="label mt-1 "><b>Customer Email</b></label>
+                    <input className='form-control w-50' disabled={true} defaultValue={customer_email} />
 
-                <label>Amount</label>
-                <input className='form-control' type='number' value={amount} onChange={(e) => { setAmount(e.target.value) }} />
+                    <label className="label mt-1 "><b>Customer Address</b></label>
+                    <input className='form-control w-50' disabled={true} defaultValue={customer_address} />
 
-                <label>Received Date</label>
-                <input className='form-control' type='date' value={received_date} onChange={(e) => { setReceivedDate(e.target.value) }} />
+                    <label className="label mt-1 "><b>Mode of Payment</b></label>
+                    <select className="form-select form-select-sm w-50 mt-1" value={payment_mode} onChange={(e) => { setPaymentMode(e.target.value) }}>
+                        <option value="" disabled={true}>--Payment Mode--</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Online">Online</option>
+                    </select>
 
-                <button onClick={(e) => { makePayments(e) }}>Submit</button>
-            </form>
+                    <label className="label mt-1 "><b>Amount</b></label>
+                    <input className='form-control w-50' type='number' value={amount} onChange={(e) => { setAmount(e.target.value) }} />
+
+                    <label className="label mt-1 "><b>Received Date</b></label>
+                    <input className='form-control w-50' type='date' value={received_date} onChange={(e) => { setReceivedDate(e.target.value) }} />
+                    <br />
+                    <button className="button bg-light text-dark form-control-sm mt-2 mb-2 " onClick={(e) => { makePayments(e) }}><b>Submit</b></button>
+                </form >
+                <br />
+                <br />
+                <br />
+            </div>
         </>
     )
 }

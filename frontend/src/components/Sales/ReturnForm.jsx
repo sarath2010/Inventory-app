@@ -41,32 +41,40 @@ const ReturnForm = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Create Returns</p>
+            {/* LABEL-ENTRY SALES RETURNS */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Sales Returns Entry</span>
+                </div>
+            </nav>
 
-            <form>
-                <label>Order Id</label>
-                <input disabled defaultValue={order_id} />
+            <div className='container bg-danger ml-10 mt-1'>
+            <form className="form needs-validation">
+                <label className="label mt-1 "><b>Order Id</b></label>
+                <input className='form-control w-50 text-dark' disabled defaultValue={order_id} />
 
-                <label>Customer Name</label>
-                <input disabled defaultValue={customer_name} />
+                <label className="label mt-1 "><b>Customer Name</b></label>
+                <input className='form-control w-50 text-dark' disabled defaultValue={customer_name} />
 
-                <label>Item Name</label>
-                <input disabled defaultValue={item_name} />
+                <label className="label mt-1 "><b>Item Name</b></label>
+                <input className='form-control w-50 text-dark' disabled defaultValue={item_name} />
 
-                <label>Quantity</label>
-                <input disabled defaultValue={quantity} />
+                <label className="label mt-1 "><b>Quantity</b></label>
+                <input className='form-control w-50 text-dark' disabled defaultValue={quantity} />
 
-                <label>Returned Quantity</label>
-                <input type="number" value={returned_quantity} onChange={(e) => { setReturnedQuantity(e.target.value) }} />
+                <label className="label mt-1 "><b>Returned Quantity</b></label>
+                <input className='form-control w-50' type="number" value={returned_quantity} onChange={(e) => { setReturnedQuantity(e.target.value) }} />
 
-                <label>Reason</label>
-                <input type="text" value={reason} onChange={(e) => { setReason(e.target.value) }} />
+                <label className="label mt-1 "><b>Reason</b></label>
+                <input className='form-control w-50' type="text" value={reason} onChange={(e) => { setReason(e.target.value) }} />
 
-                <label>Returned Date</label>
-                <input type="date" value={returned_date} onChange={(e) => { setReturnedDate(e.target.value) }} />
+                <label className="label mt-1 "><b>Returned Date</b></label>
+                <input className='form-control w-50' type="date" value={returned_date} onChange={(e) => { setReturnedDate(e.target.value) }} /><br/>
 
-                <button onClick={(e) => { returnItems(e) }}>Submit</button>
+                <button class="btn btn-dark" onClick={(e) => { returnItems(e) }}>Submit</button>
             </form>
+            <br/><br/>
+            </div>
         </>
     )
 }

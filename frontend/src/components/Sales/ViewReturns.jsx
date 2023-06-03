@@ -26,7 +26,7 @@ const ViewReturns = () => {
             selling_price: await value.selling_price
         });
         if (response && (await response).data.success) {
-            alert('Added to inventory');
+            alert('Returned quantity added to inventory');
             await getReturns();
         }
     };
@@ -45,7 +45,7 @@ const ViewReturns = () => {
             status: 'Credited'
         });
         if (response && response.data.success) {
-            alert('Credit Notes Issued');
+            alert('Credit note issued to customer.');
             navigate('/creditnotes', { replace: true })
         }
     }
@@ -69,12 +69,23 @@ const ViewReturns = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>View Returns</p>
+            {/* LABEL-SALES RETURNS LIST */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Sales Returns List</span>
+                </div>
+            </nav>
 
-            <button onClick={goToSalesReturnsList}>Sales Returns List</button>
+            {/* BUTTON TOP */}
 
-            <div className='table-responsive'>
-                <table className="table">
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={goToSalesReturnsList}><b>Sales Returns List</b></button>
+                </div>
+            </div>
+
+            <div className='container bg-danger ml-10'>
+                <table className="table table-danger table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Order Id</th>
@@ -102,10 +113,10 @@ const ViewReturns = () => {
                                     <td>{value.status}</td>
                                     <td>
                                         {value.status === "Checking" && (
-                                            <button onClick={(e) => { addToInventory(e, value) }}>Add</button>
+                                            <button class="btn btn-danger btn-sm" onClick={(e) => { addToInventory(e, value) }}>Add now</button>
                                         )}
                                         {value.status === "Added to Inventory" && (
-                                            <button onClick={(e) => { creditNotes(e, value) }}>Credit Notes</button>
+                                            <button class="btn btn-secondary btn-sm" onClick={(e) => { creditNotes(e, value) }}>Credit Notes</button>
                                         )}
                                     </td>
                                 </tr>
@@ -113,6 +124,7 @@ const ViewReturns = () => {
                         })}
                     </tbody>
                 </table>
+                <br/>
             </div>
         </>
     )

@@ -22,10 +22,16 @@ const ViewPayments = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Payments List</p>
+            {/* LABEL-PAYMENTS LIST */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Payments Received List</span>
+                </div>
+            </nav>
 
-            <div className='table-responsive'>
-                <table className="table">
+            <div className='container bg-danger mt-1 ml-10'>
+                <br />
+                <table className="table table-danger table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
@@ -44,13 +50,14 @@ const ViewPayments = () => {
                                     <td>{value.customer_email}</td>
                                     <td>{value.customer_address}</td>
                                     <td>{value.payment_mode}</td>
-                                    <td>{value.amount}</td>
+                                    <td>{value.amount.toLocaleString('en-IN')}</td>
                                     <td>{moment(value.received_date).format('DD-MM-YYYY')}</td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
+                <br />
             </div>
         </>
     )

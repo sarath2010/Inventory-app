@@ -31,7 +31,7 @@ const ViewVendors = ({ reload }) => {
 
     return (
         <>
-            <table className="table mt-3">
+            <table className="table mt-3 text-white">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -52,7 +52,7 @@ const ViewVendors = ({ reload }) => {
                                 <td>{value.address}</td>
                                 <td>{value.payment_terms}</td>
                                 <td>
-                                    <button onClick={(e) => { updateVendors(e, value) }}>
+                                    <button class="btn btn-dark btn-sm" onClick={(e) => { updateVendors(e, value) }}>
                                         Update
                                     </button>
                                 </td>

@@ -38,7 +38,7 @@ const BillPayments = () => {
             item_id
         });
         if (response && response.data.success) {
-            alert('Bill Added Successfully!!!');
+            alert('Bill Successfully Added');
         }
     }
 
@@ -46,41 +46,50 @@ const BillPayments = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Bill Payments</p>
+            {/* LABEL-VENDOR' BILLS ENTRY */}
+            <nav class="navbar navbar-light  bg-success">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Vendor Bills Entry</span>
+                </div>
+            </nav>
 
+
+            <div className='container bg-success ml-10 mt-1 align-content-end'>
             <form>
-                <label>Item Group</label>
-                <input defaultValue={item_group} disabled={true} />
+                <label className="label mt-1 "><b>Item Group</b></label>
+                <input className='form-control w-50' defaultValue={item_group} disabled={true} />
 
-                <label>Item</label>
-                <input defaultValue={item} disabled={true} />
+                <label className="label mt-1 "><b>Item</b></label>
+                <input className='form-control w-50' defaultValue={item} disabled={true} />
 
-                <label>Order Quantity</label>
-                <input defaultValue={order_quantity} disabled={true} />
+                <label className="label mt-1 "><b>Order Quantity</b></label>
+                <input className='form-control w-50' defaultValue={order_quantity} disabled={true} />
 
-                <label>Purchase Date</label>
-                <input defaultValue={order_Date} disabled={true} />
+                <label className="label mt-1 "><b>Purchase Date</b></label>
+                <input className='form-control w-50' defaultValue={order_Date} disabled={true} />
 
-                <label>Vendors Name</label>
-                <input defaultValue={vendors_name} disabled={true} />
+                <label className="label mt-1 "><b>Vendors Name</b></label>
+                <input className='form-control w-50' defaultValue={vendors_name} disabled={true} />
 
-                <label>Vendors Email</label>
-                <input defaultValue={vendors_email} disabled={true} />
+                <label className="label mt-1 "><b>Vendors Email</b></label>
+                <input className='form-control w-50' defaultValue={vendors_email} disabled={true} />
 
-                <label>Vendors Phone Number</label>
-                <input defaultValue={vendors_phone_number} disabled={true} />
+                <label className="label mt-1 "><b>Vendors Phone Number</b></label>
+                <input className='form-control w-50' defaultValue={vendors_phone_number} disabled={true} />
 
-                <label>Vendors Payment Terms</label>
-                <input defaultValue={payment_terms} disabled={true} />
+                <label className="label mt-1 "><b>Vendors Payment Terms</b></label>
+                <input className='form-control w-50' defaultValue={payment_terms} disabled={true} />
 
-                <label>Amount</label>
-                <input defaultValue={amount} disabled={true} />
+                <label className="label mt-1 "><b>Amount</b></label>
+                <input className='form-control w-50' defaultValue={amount} disabled={true} />
 
-                <label>Vendor Bill Reference</label>
-                <input type='number' onChange={(e) => { setBillReference(e.target.value) }} />
+                <label className="label mt-1 "><b>Vendor Bill Reference</b></label>
+                <input className='form-control w-50' type='number' onChange={(e) => { setBillReference(e.target.value) }} /><br/>
 
-                <button onClick={(e) => { addToBill(e) }}>Submit</button>
+                <button class="btn btn-info" onClick={(e) => { addToBill(e) }}>Submit</button>
+                <br/><br/><br/>
             </form>
+            </div>
         </>
     )
 }

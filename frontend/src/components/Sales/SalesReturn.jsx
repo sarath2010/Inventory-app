@@ -38,18 +38,30 @@ const SalesReturn = () => {
         <>
             <Navbar />
 
-            <p className='text-center text-primary' style={{ fontSize: '21px' }}>Sales Returns</p>
+            {/* LABEL-SALES RETURNS */}
+            <nav class="navbar navbar-light  bg-danger">
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand mb-0 h1 text-white">Sales Returns</span>
+                </div>
+            </nav>
 
-            <button onClick={navigateViewReturns}>View Returns</button>
-            <div className='table-responsive'>
-                <table className="table">
+            {/* BUTTON TOP */}
+
+            <div className='container bg-danger mt-1 ml-10 align-content-end'>
+                <div class="d-flex justify-content-end">
+                    <button className="button bg-light text-danger form-control-sm mt-2 mb-2 " onClick={navigateViewReturns}><b>View Returns</b></button>
+                </div>
+            </div>
+
+            <div className='container bg-danger ml-10'>
+                <table className="table table-danger table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Order Id</th>
                             <th scope="col">Customer Name</th>
                             <th scope="col">Item Name</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">return</th>
+                            <th scope="col">Add Returns</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,7 +74,7 @@ const SalesReturn = () => {
                                     <td>{value.quantity}</td>
                                     <td>
                                         {value.status === "Invoiced" && (
-                                            <button onClick={(e) => { returnForm(e, value) }}>Return</button>
+                                            <button class="btn btn-danger btn-sm" onClick={(e) => { returnForm(e, value) }}>Add</button>
                                         )}
                                     </td>
                                 </tr>
@@ -70,6 +82,7 @@ const SalesReturn = () => {
                         })}
                     </tbody>
                 </table>
+                <br />
             </div >
 
         </>
