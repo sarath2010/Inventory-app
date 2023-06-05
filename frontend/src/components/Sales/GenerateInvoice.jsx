@@ -30,7 +30,7 @@ const GenerateInvoice = () => {
             {/* LABEL-CUSTOMER DC */}
             <nav class="navbar navbar-light  bg-danger">
                 <div class="container-fluid justify-content-center">
-                    <span class="navbar-brand mb-0 h1 text-white">Invoices by Customer</span>
+                    <span class="navbar-brand h1 text-white">Invoices by Customer</span>
                 </div>
             </nav>
 

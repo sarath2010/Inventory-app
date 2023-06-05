@@ -100,10 +100,10 @@ const OrdersList = () => {
             total_price: await value.total_price,
             invoice_id: await value.order_id,
             invoice_date: new Date(),
-            invoice_status: 'Invoice generated and available under Invoices List',
+            invoice_status: 'Invoiced',
         });
         if (response && response.data.success) {
-            alert('Invoice Generated');
+            alert('Invoice Issued.');
             await getOrders();
         }
     }
@@ -212,6 +212,8 @@ const OrdersList = () => {
                     </tbody>
                 </table>
             </div>
+            <br/>
+            <br/>
             </div>
         </>
     )
