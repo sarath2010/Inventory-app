@@ -133,7 +133,7 @@ const PurchaseOrders = () => {
             </div>
 
 
-            <div className='container bg-success mt-1 ml-10'>
+            <div className='container bg-success ml-10'>
                 <label className="label mt-1 ">Items Group</label>
                 <select className="form-select form-select-sm w-50 mt-1" value={item_group_id} onChange={handleItemsGroupChange}>
                     <option value="" disabled={true}>--Select Group--</option>
