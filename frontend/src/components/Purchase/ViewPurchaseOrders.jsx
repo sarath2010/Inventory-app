@@ -35,6 +35,7 @@ const ViewPurchaseOrders = () => {
             const response = await axios.get('http://localhost:5000/purchaseorders');
             if (response && response.data.success) {
                 setPurchaseData(response.data.success);
+                navigate('/viewpurchase', { replace: true })
             }
         }
         getPurchase()

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import axios from 'axios';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom'
 
 const BillAndPaymentsPage = () => {
 
     const [billsData, setBillsData] = useState([]);
+    const navigate = useNavigate();
     const randomNum = Math.floor(Math.random() * 10000000000); // generate a random number between 0 and 999999
     const credit_number = String(randomNum).padStart(10, '0'); // convert the number to a string and add leading zeros if necessary
 
@@ -22,13 +24,14 @@ const BillAndPaymentsPage = () => {
             vendors_phone_number: await value.vendors_phone_number,
             payment_terms: await value.payment_terms,
             amount: await value.amount,
-            status: "CR.Issued",
+            status: "Cr. Note issued",
             credit_number,
             credit_date: new Date()
         });
         if (response && response.data.success) {
-            alert('Vendors Credited');
+            alert('Credit Note issued');
             await getBills();
+            navigate('/vendorscredit', { replace: true })
         }
     }
 

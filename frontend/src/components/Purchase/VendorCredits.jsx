@@ -24,7 +24,7 @@ const VendorCredits = () => {
             {/* LABEL-VENDOR CREDITS */}
             <nav class="navbar navbar-light  bg-success">
                 <div class="container-fluid justify-content-center">
-                    <span class="navbar-brand mb-0 h1 text-white">Bills & Payments</span>
+                    <span class="navbar-brand mb-0 h1 text-white">Vendor Credit Notes</span>
                 </div>
             </nav>
 
@@ -33,7 +33,7 @@ const VendorCredits = () => {
                     <thead>
                         <tr>
                             <th scope="col">Credit Date</th>
-                            <th scope="col">Credit Number</th>
+                            <th scope="col">Credit Note Number</th>
                             <th scope="col">Purchase Id</th>
                             <th scope="col">Item Group</th>
                             <th scope="col">Item</th>
@@ -52,7 +52,7 @@ const VendorCredits = () => {
                             return (
                                 <tr key={index}>
                                     <td>{moment(value.credit_date).format('DD-MM-YYYY')}</td>
-                                    <td>{value.credit_number}</td>
+                                    <td><b>{value.credit_number}</b></td>
                                     <td>{value.purchaseId}</td>
                                     <td>{value.item_group}</td>
                                     <td>{value.item}</td>

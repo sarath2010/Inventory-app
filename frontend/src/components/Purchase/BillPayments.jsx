@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import axios from 'axios';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom'
 
 const BillPayments = () => {
 
@@ -18,6 +19,7 @@ const BillPayments = () => {
     const [bill_reference, setBillReference] = useState('');
     const purchaseId = sessionStorage.getItem('PurchaseIdNew');
     const item_id = sessionStorage.getItem('ItemId');
+    const navigate = useNavigate();
 
     const addToBill = async (e) => {
         e.preventDefault();
@@ -39,6 +41,7 @@ const BillPayments = () => {
         });
         if (response && response.data.success) {
             alert('Bill Successfully Added');
+            navigate('/billandpayments', { replace: true })
         }
     }
 

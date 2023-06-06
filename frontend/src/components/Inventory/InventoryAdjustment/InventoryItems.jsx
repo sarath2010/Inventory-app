@@ -74,7 +74,6 @@ const InventoryItems = () => {
                             <th scope="col">Opening Stock</th>
                             <th scope="col">Reorder point</th>
                             <th scope="col">Preferred Vendor</th>
-                            <th scope="col">Image</th>
                             <th scope="col">Adjust</th>
                         </tr>
                     </thead>
@@ -94,7 +93,6 @@ const InventoryItems = () => {
                                     <th>{value.opening_stock}</th>
                                     <th>{value.reorder_point}</th>
                                     <th>{value.preferred_vendor}</th>
-                                    <th>{value.image_of_item}</th>
                                     <th>
                                         <button className="button bg-primary text-white" onClick={(e) => { adjust(e, value) }}>Adjust</button>
                                     </th>
