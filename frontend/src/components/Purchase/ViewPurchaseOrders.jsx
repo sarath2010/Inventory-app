@@ -92,7 +92,7 @@ const ViewPurchaseOrders = () => {
                                     <td>{value.vendors_email}</td>
                                     <td>{value.vendors_phone_number}</td>
                                     <td>{value.payment_terms}</td>
-                                    <td>{value.amount}</td>
+                                    <td>{value.amount.toLocaleString('en-IN')}</td>
                                     <td>{value.status}</td>
                                     <td>
                                         {value.status === "Order Issued" && (
